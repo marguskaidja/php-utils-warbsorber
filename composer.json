@@ -1,0 +1,34 @@
+{
+  "name": "margusk/utils-warbsorber",
+  "description": "Provides functionality to catch PHP warnings during any function or method call.",
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Margus Kaidja",
+      "email": "margusk@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "config": {
+    "discard-changes": true
+  },
+  "autoload": {
+    "psr-4": {
+      "margusk\\Utils\\Warbsorber\\": "src/Utils/Warbsorber"
+    },
+    "files": [
+      "src/Utils/Warbsorber.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "margusk\\Utils\\Warbsorber\\Tests\\": "tests/"
+    }
+  }
+}
