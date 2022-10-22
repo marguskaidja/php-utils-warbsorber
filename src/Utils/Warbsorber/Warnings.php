@@ -12,14 +12,16 @@ declare(strict_types=1);
 
 namespace margusk\Utils\Warbsorber;
 
+use ArrayAccess;
+use BadMethodCallException;
+use OutOfRangeException;
 use IteratorAggregate;
 use Countable;
 
 /**
- * Represents a set of warnings absorbed during
- * an margusk\Utils\Warbsorber() call
+ * Represents a set of warnings absorbed during a margusk\Utils\Warbsorber() call
  */
-final class Warnings implements IteratorAggregate, Countable
+final class Warnings implements IteratorAggregate, Countable, ArrayAccess
 {
     /** @var Entry[] array */
     protected array $entries;
@@ -47,6 +49,30 @@ final class Warnings implements IteratorAggregate, Countable
     public function count(): int
     {
         return count($this->entries);
+    }
+
+    public function offsetGet(mixed $offset): Entry
+    {
+        if (!isset($this->entries[$offset])) {
+            throw new OutOfRangeException('Undefined array key "' . $offset . '"');
+        }
+
+        return $this->entries[$offset];
+    }
+
+    public function offsetSet(mixed $offset, mixed $value): void
+    {
+        throw new BadMethodCallException('warnings array can\'t be changed');
+    }
+
+    public function offsetExists(mixed $offset): bool
+    {
+        return isset($this->entries[$offset]);
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        throw new BadMethodCallException('warnings array entries can\'t be unset');
     }
 
     /**

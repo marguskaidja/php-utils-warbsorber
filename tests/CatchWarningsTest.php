@@ -21,7 +21,7 @@ class CatchWarningsTest extends TestCase
         $this->assertCount(1, $warnings);
         $this->assertEquals(
             $message,
-            ($warnings->getArrayCopy()[0])->errStr
+            $warnings[0]->errStr
         );
     }
 
@@ -86,12 +86,12 @@ class CatchWarningsTest extends TestCase
 
         $this->assertMatchesRegularExpression(
             '/' . preg_quote("Invalid php:// URL specified", '/') . '/',
-            ($warnings->getArrayCopy()[0])->errStr
+            $warnings[0]->errStr
         );
 
         $this->assertMatchesRegularExpression(
             '/' . preg_quote("Failed to open stream: operation failed", '/') . '/',
-            ($warnings->getArrayCopy()[1])->errStr
+            $warnings[1]->errStr
         );
     }
 }
