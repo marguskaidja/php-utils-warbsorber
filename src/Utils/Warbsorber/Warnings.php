@@ -21,12 +21,19 @@ use Countable;
  */
 final class Warnings implements IteratorAggregate, Countable
 {
+    /** @var Entry[] array */
     protected array $entries;
 
+    /**
+     * @param Entry[] $entries
+     */
     public function __construct(array $entries) {
         $this->entries = $entries;
     }
 
+    /**
+     * @return Entry[]
+     */
     public function getArrayCopy(): array
     {
         return $this->entries;
@@ -40,5 +47,27 @@ final class Warnings implements IteratorAggregate, Countable
     public function count(): int
     {
         return count($this->entries);
+    }
+
+    /**
+     * Removes built-in function prefix (e.g. "fopen(): ") from messages and returns
+     * cloned instance of Warnings object
+     *
+     * @param string $funcName
+     *
+     * @return static
+     */
+    public function removeFunctionPrefix(string $funcName): static
+    {
+        /** @var Entry[] $entries */
+        $entries = [];
+        foreach ($this->entries as $entry) {
+            $newEntry = $entry->removeFunctionPrefix($funcName);
+            $entries[] = $newEntry;
+        }
+
+        $obj = clone $this;
+        $obj->entries = $entries;
+        return $obj;
     }
 }
