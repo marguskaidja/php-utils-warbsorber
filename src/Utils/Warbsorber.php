@@ -31,7 +31,7 @@ if (false === function_exists(__NAMESPACE__ . '\\Warbsorber')) {
      * @link https://www.php.net/manual/en/errorfunc.constants.php
      * @link https://www.php.net/manual/en/function.set-error-handler.php
      *
-     * @param  Closure  $callback   Encapsulates code to execute
+     * @param  Closure  $callback   The code to execute
      * @param  int      $level      One or combination of E_* constants
      *
      * @return Warnings

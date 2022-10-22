@@ -42,4 +42,21 @@ final class Entry
             sprintf('unknown property "%s"', $name)
         );
     }
+
+    public function removeFunctionPrefix(string $funcName): static
+    {
+        $newErrStr = $this->errStr;
+
+        if ('' !== $funcName) {
+            $newErrStr = preg_replace('/' . $funcName . '\\(.*\\): /i', '', $newErrStr);
+        }
+
+        if ($newErrStr !== $this->errStr) {
+            $obj = clone($this);
+            $obj->errStr = $newErrStr;
+            return $obj;
+        }
+
+        return $this;
+    }
 }
