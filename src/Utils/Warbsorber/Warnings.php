@@ -21,7 +21,7 @@ use Countable;
 /**
  * Represents a set of warnings absorbed during a margusk\Utils\Warbsorber() call
  */
-final class Warnings implements IteratorAggregate, Countable, ArrayAccess
+class Warnings implements IteratorAggregate, Countable, ArrayAccess
 {
     /** @var Entry[] array */
     protected array $entries;

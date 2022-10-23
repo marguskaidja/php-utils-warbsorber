@@ -22,7 +22,7 @@ use InvalidArgumentException;
  * @property-read string    $errFile
  * @property-read int       $errLine
  */
-final class Entry
+class Entry
 {
     public function __construct(
         protected int $errNo,
