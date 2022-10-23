@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the utils-warbsorber package.
+ * This file is part of the margusk/Utils/Warbsorber package.
  *
  * @author  Margus Kaidja <margusk@gmail.com>
  * @link    https://github.com/marguskaidja/php-utils-warbsorber
