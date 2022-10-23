@@ -16,7 +16,7 @@ use Closure;
 use margusk\Utils\Warbsorber\Entry;
 use margusk\Utils\Warbsorber\Warnings;
 
-if (false === function_exists(__NAMESPACE__ . '\\Warbsorber')) {
+if (false === function_exists(__NAMESPACE__.'\\Warbsorber')) {
     /**
      * Use this function to catch PHP warnings and/or errors during $callback execution.
      *
@@ -31,8 +31,8 @@ if (false === function_exists(__NAMESPACE__ . '\\Warbsorber')) {
      * @link https://www.php.net/manual/en/errorfunc.constants.php
      * @link https://www.php.net/manual/en/function.set-error-handler.php
      *
-     * @param  Closure  $callback   The code to execute
-     * @param  int      $level      One or combination of E_* constants
+     * @param  Closure  $callback  The code to execute
+     * @param  int      $level     One or combination of E_* constants
      *
      * @return Warnings
      */

@@ -17,10 +17,10 @@ use InvalidArgumentException;
 /**
  * Represents a single warning
  *
- * @property-read int       $errNo
- * @property-read string    $errStr
- * @property-read string    $errFile
- * @property-read int       $errLine
+ * @property-read int    $errNo
+ * @property-read string $errStr
+ * @property-read string $errFile
+ * @property-read int    $errLine
  */
 class Entry
 {
@@ -48,7 +48,7 @@ class Entry
         $newErrStr = $this->errStr;
 
         if ('' !== $funcName) {
-            $newErrStr = preg_replace('/' . $funcName . '\\(.*\\): /i', '', $newErrStr);
+            $newErrStr = preg_replace('/'.$funcName.'\\(.*\\): /i', '', $newErrStr);
         }
 
         if ($newErrStr !== $this->errStr) {
