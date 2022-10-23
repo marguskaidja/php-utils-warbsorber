@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the utils-warbsorber package.
+ * This file is part of the margusk/Utils/Warbsorber package.
  *
  * @author  Margus Kaidja <margusk@gmail.com>
  * @link    https://github.com/marguskaidja/php-utils-warbsorber
@@ -17,12 +17,12 @@ use InvalidArgumentException;
 /**
  * Represents a single warning
  *
- * @property-read int       $errNo
- * @property-read string    $errStr
- * @property-read string    $errFile
- * @property-read int       $errLine
+ * @property-read int    $errNo
+ * @property-read string $errStr
+ * @property-read string $errFile
+ * @property-read int    $errLine
  */
-final class Entry
+class Entry
 {
     public function __construct(
         protected int $errNo,
@@ -48,7 +48,7 @@ final class Entry
         $newErrStr = $this->errStr;
 
         if ('' !== $funcName) {
-            $newErrStr = preg_replace('/' . $funcName . '\\(.*\\): /i', '', $newErrStr);
+            $newErrStr = preg_replace('/'.$funcName.'\\(.*\\): /i', '', $newErrStr);
         }
 
         if ($newErrStr !== $this->errStr) {

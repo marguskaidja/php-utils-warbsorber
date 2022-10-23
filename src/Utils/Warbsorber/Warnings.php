@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the utils-warbsorber package.
+ * This file is part of the margusk/Utils/Warbsorber package.
  *
  * @author  Margus Kaidja <margusk@gmail.com>
  * @link    https://github.com/marguskaidja/php-utils-warbsorber
@@ -14,22 +14,23 @@ namespace margusk\Utils\Warbsorber;
 
 use ArrayAccess;
 use BadMethodCallException;
-use OutOfRangeException;
-use IteratorAggregate;
 use Countable;
+use IteratorAggregate;
+use OutOfRangeException;
 
 /**
  * Represents a set of warnings absorbed during a margusk\Utils\Warbsorber() call
  */
-final class Warnings implements IteratorAggregate, Countable, ArrayAccess
+class Warnings implements IteratorAggregate, Countable, ArrayAccess
 {
     /** @var Entry[] array */
     protected array $entries;
 
     /**
-     * @param Entry[] $entries
+     * @param  Entry[]  $entries
      */
-    public function __construct(array $entries) {
+    public function __construct(array $entries)
+    {
         $this->entries = $entries;
     }
 
@@ -54,7 +55,7 @@ final class Warnings implements IteratorAggregate, Countable, ArrayAccess
     public function offsetGet(mixed $offset): Entry
     {
         if (!isset($this->entries[$offset])) {
-            throw new OutOfRangeException('Undefined array key "' . $offset . '"');
+            throw new OutOfRangeException('Undefined array key "'.$offset.'"');
         }
 
         return $this->entries[$offset];
@@ -79,7 +80,7 @@ final class Warnings implements IteratorAggregate, Countable, ArrayAccess
      * Removes built-in function prefix (e.g. "fopen(): ") from messages and returns
      * cloned instance of Warnings object
      *
-     * @param string $funcName
+     * @param  string  $funcName
      *
      * @return static
      */
