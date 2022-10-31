@@ -1,5 +1,5 @@
 {
-  "name": "margusk/utils-warbsorber",
+  "name": "margusk/warbsorber",
   "description": "Provides functionality to catch PHP warnings during any function or method call.",
   "prefer-stable": true,
   "minimum-stability": "dev",
@@ -9,6 +9,7 @@
       "email": "margusk@gmail.com"
     }
   ],
+  "license": "MIT",
   "require": {
     "php": "^8.0"
   },
@@ -20,15 +21,15 @@
   },
   "autoload": {
     "psr-4": {
-      "margusk\\Utils\\Warbsorber\\": "src/Utils/Warbsorber"
+      "margusk\\Warbsorber\\": "src/Warbsorber"
     },
     "files": [
-      "src/Utils/Warbsorber.php"
+      "src/Warbsorber.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
-      "margusk\\Utils\\Warbsorber\\Tests\\": "tests/"
+      "margusk\\Warbsorber\\Tests\\": "tests/"
     }
   }
 }
