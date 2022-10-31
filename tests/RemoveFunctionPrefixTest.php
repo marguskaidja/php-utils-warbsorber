@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This file is part of the margusk/Utils/Warbsorber package.
+ * This file is part of the margusk/warbsorber package.
  *
  * @author  Margus Kaidja <margusk@gmail.com>
- * @link    https://github.com/marguskaidja/php-utils-warbsorber
+ * @link    https://github.com/marguskaidja/php-warbsorber
  * @license http://www.opensource.org/licenses/mit-license.php MIT (see the LICENSE file)
  */
 
 declare(strict_types=1);
 
-namespace margusk\Utils\Warbsorber\Tests;
+namespace margusk\Warbsorber\Tests;
 
-use margusk\Utils\Warbsorber\Entry;
+use margusk\Warbsorber\Entry;
 use PHPUnit\Framework\TestCase;
 
 class RemoveFunctionPrefixTest extends TestCase
