@@ -48,7 +48,11 @@ class Entry
         $newErrStr = $this->errStr;
 
         if ('' !== $funcName) {
-            $newErrStr = preg_replace('/'.$funcName.'\\(.*\\): /i', '', $newErrStr);
+            $newErrStr = (string)preg_replace(
+                '/'.preg_quote($funcName, '/').'\\(.*\\): /i',
+                '',
+                $newErrStr
+            );
         }
 
         if ($newErrStr !== $this->errStr) {

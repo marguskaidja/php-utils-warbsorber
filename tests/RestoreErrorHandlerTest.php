@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class RestoreErrorHandlerTest extends TestCase
 {
-    public function testCustomErrorHandlerMustBeRestored()
+    public function testCustomErrorHandlerMustBeRestored(): void
     {
         $expectedMessage = "This message should be catched by previous error handler";
         $actualMessage = null;
@@ -39,7 +39,7 @@ class RestoreErrorHandlerTest extends TestCase
         $this->assertEquals($expectedMessage, $actualMessage);
     }
 
-    public function testDefaultErrorHandlerMustBeRestored()
+    public function testDefaultErrorHandlerMustBeRestored(): void
     {
         $expectedMessage = "This message should be catched by previous error handler";
 
@@ -54,7 +54,7 @@ class RestoreErrorHandlerTest extends TestCase
         ob_start();
         /** @noinspection PhpRedundantOptionalArgumentInspection */
         trigger_error($expectedMessage, E_USER_NOTICE);
-        $actualMessage = ob_get_clean();
+        $actualMessage = (string)ob_get_clean();
 
         ini_set('display_errors', $oldDisplayErrors);
 
