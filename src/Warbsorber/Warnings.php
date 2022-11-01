@@ -20,6 +20,9 @@ use OutOfRangeException;
 
 /**
  * Represents a set of warnings absorbed during a margusk\Warbsorber() call
+ *
+ * @implements IteratorAggregate<Entry>
+ * @implements ArrayAccess<int,Entry>
  */
 class Warnings implements IteratorAggregate, Countable, ArrayAccess
 {

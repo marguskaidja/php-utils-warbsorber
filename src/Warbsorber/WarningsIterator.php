@@ -18,6 +18,8 @@ use ArrayIterator;
  * Only purpose of this class is to have some Iterator method signatures
  * to be redefined for proper IDE autocompletion
  *
+ * @extends ArrayIterator<int, Entry>
+ *
  * @method Entry    current()
  * @method int|null key()
  */

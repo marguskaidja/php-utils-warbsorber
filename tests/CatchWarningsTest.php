@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 class CatchWarningsTest extends TestCase
 {
-    public function testWhenLevelHasEuserwarningThenEuserwarningsMustBeCatched()
+    public function testWhenLevelHasEuserwarningThenEuserwarningsMustBeCatched(): void
     {
         $message = "this is purposedly triggered warning";
 
@@ -33,7 +33,7 @@ class CatchWarningsTest extends TestCase
         );
     }
 
-    public function testMultipleWarningsMustBeCatched()
+    public function testMultipleWarningsMustBeCatched(): void
     {
         $testData = [];
         foreach (['E_USER_WARNING', 'E_USER_ERROR', 'E_USER_NOTICE'] as $errNo) {
@@ -45,7 +45,7 @@ class CatchWarningsTest extends TestCase
 
         $warnings = Warbsorber(function () use (&$testData) {
             foreach ($testData as $e) {
-                trigger_error($e['errStr'], $e['errNo']);
+                trigger_error(strval($e['errStr']), intval($e['errNo']));
             }
         });
 
@@ -61,7 +61,7 @@ class CatchWarningsTest extends TestCase
         );
     }
 
-    public function testWhenLevelHasNoEuserwarningThenEuserwarningsMustNotBeCatched()
+    public function testWhenLevelHasNoEuserwarningThenEuserwarningsMustNotBeCatched(): void
     {
         $message = "this is purposedly triggered warning";
 
@@ -73,7 +73,7 @@ class CatchWarningsTest extends TestCase
             trigger_error($message, E_USER_WARNING);
         }, E_WARNING);
 
-        $output = ob_get_clean();
+        $output = (string)ob_get_clean();
 
         ini_set('display_errors', $oldDisplayErrors);
 
@@ -84,7 +84,7 @@ class CatchWarningsTest extends TestCase
         );
     }
 
-    public function testFopenEwarningMustBeCatched()
+    public function testFopenEwarningMustBeCatched(): void
     {
         $warnings = Warbsorber(function () {
             fopen("php://non-existent-stream", "r");

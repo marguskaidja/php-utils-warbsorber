@@ -61,6 +61,7 @@ class WarningsArrayAccessTest extends TestCase
         $this->expectException(OutOfRangeException::class);
         $this->expectExceptionMessage('Undefined array key "' . $offset . '"');
 
-        $warnings[$offset];
+        /** @noinspection PhpUnusedLocalVariableInspection */
+        $dummy = $warnings[$offset];
     }
 }

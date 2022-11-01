@@ -17,6 +17,9 @@ use PHPUnit\Framework\TestCase;
 
 class RemoveFunctionPrefixTest extends TestCase
 {
+    /**
+     * @return string[][]
+     */
     public function dataProviderForFopenPrefixRemover(): array
     {
         $message = 'Operation failed';
@@ -38,7 +41,7 @@ class RemoveFunctionPrefixTest extends TestCase
     }
 
     /** @dataProvider dataProviderForFopenPrefixRemover */
-    public function testFopenPrefixMustBeRemovedFromEntry(string $input, string $expected)
+    public function testFopenPrefixMustBeRemovedFromEntry(string $input, string $expected): void
     {
         $entry = (new Entry(0, $input, '', 0))
             ->removeFunctionPrefix('fopen');
