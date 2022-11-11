@@ -1,36 +1,119 @@
 {
-  "name": "margusk/warbsorber",
-  "description": "Provides functionality to catch PHP warnings during any function or method call.",
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "authors": [
-    {
-      "name": "Margus Kaidja",
-      "email": "margusk@gmail.com"
-    }
-  ],
-  "license": "MIT",
-  "require": {
-    "php": "^8.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.5",
-    "phpstan/phpstan": "^1.8"
-  },
-  "config": {
-    "discard-changes": true
-  },
-  "autoload": {
-    "psr-4": {
-      "margusk\\Warbsorber\\": "src/Warbsorber"
+    "name": "margusk/warbsorber",
+    "description": "Provides functionality to catch PHP warnings during any function or method call.",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Margus Kaidja",
+            "email": "margusk@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "margusk/accessors": "^0.4"
     },
-    "files": [
-      "src/Warbsorber.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "margusk\\Warbsorber\\Tests\\": "tests/"
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.8"
+    },
+    "config": {
+        "discard-changes": true
+    },
+    "autoload": {
+        "psr-4": {
+            "margusk\\Warbsorber\\": "src/Warbsorber",
+            "margusk\\Warbsorber\\Functions\\Exceptions\\": "generated/Exceptions"
+        },
+        "files": [
+            "src/Warbsorber.php",
+            "generated/apache.php",
+            "generated/apcu.php",
+            "generated/array.php",
+            "generated/bzip2.php",
+            "generated/calendar.php",
+            "generated/classobj.php",
+            "generated/com.php",
+            "generated/cubrid.php",
+            "generated/curl.php",
+            "generated/datetime.php",
+            "generated/dir.php",
+            "generated/eio.php",
+            "generated/errorfunc.php",
+            "generated/exec.php",
+            "generated/fileinfo.php",
+            "generated/filesystem.php",
+            "generated/filter.php",
+            "generated/fpm.php",
+            "generated/ftp.php",
+            "generated/funchand.php",
+            "generated/gettext.php",
+            "generated/gnupg.php",
+            "generated/hash.php",
+            "generated/ibase.php",
+            "generated/ibmDb2.php",
+            "generated/iconv.php",
+            "generated/image.php",
+            "generated/imap.php",
+            "generated/info.php",
+            "generated/inotify.php",
+            "generated/json.php",
+            "generated/ldap.php",
+            "generated/libxml.php",
+            "generated/lzf.php",
+            "generated/mailparse.php",
+            "generated/mbstring.php",
+            "generated/misc.php",
+            "generated/mysql.php",
+            "generated/network.php",
+            "generated/oci8.php",
+            "generated/opcache.php",
+            "generated/openssl.php",
+            "generated/outcontrol.php",
+            "generated/pcntl.php",
+            "generated/pcre.php",
+            "generated/pgsql.php",
+            "generated/posix.php",
+            "generated/ps.php",
+            "generated/pspell.php",
+            "generated/readline.php",
+            "generated/rnp.php",
+            "generated/rpminfo.php",
+            "generated/rrd.php",
+            "generated/sem.php",
+            "generated/session.php",
+            "generated/shmop.php",
+            "generated/sockets.php",
+            "generated/sodium.php",
+            "generated/solr.php",
+            "generated/spl.php",
+            "generated/sqlsrv.php",
+            "generated/ssdeep.php",
+            "generated/ssh2.php",
+            "generated/stream.php",
+            "generated/strings.php",
+            "generated/swoole.php",
+            "generated/uodbc.php",
+            "generated/uopz.php",
+            "generated/url.php",
+            "generated/var.php",
+            "generated/xdiff.php",
+            "generated/xml.php",
+            "generated/xmlrpc.php",
+            "generated/yaml.php",
+            "generated/yaz.php",
+            "generated/zip.php",
+            "generated/zlib.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "margusk\\Warbsorber\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "tests": "vendor/bin/phpunit",
+        "phpstan": "vendor/bin/phpstan analyse src/ tests/ -l 9"
     }
-  }
 }

@@ -13,6 +13,8 @@ declare(strict_types=1);
 namespace margusk\Warbsorber;
 
 use InvalidArgumentException;
+use margusk\Accessors\Accessible;
+use margusk\Accessors\Attr\Get;
 
 /**
  * Represents a single warning
@@ -22,25 +24,17 @@ use InvalidArgumentException;
  * @property-read string $errFile
  * @property-read int    $errLine
  */
+#[Get]
 class Entry
 {
+    use Accessible;
+
     public function __construct(
         protected int $errNo,
         protected string $errStr,
         protected string $errFile,
         protected int $errLine
     ) {
-    }
-
-    public function __get(string $name): mixed
-    {
-        if (isset($this->{$name})) {
-            return $this->{$name};
-        }
-
-        throw new InvalidArgumentException(
-            sprintf('unknown property "%s"', $name)
-        );
     }
 
     public function removeFunctionPrefix(string $funcName): static

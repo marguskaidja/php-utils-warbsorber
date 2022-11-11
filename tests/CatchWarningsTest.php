@@ -75,7 +75,7 @@ class CatchWarningsTest extends TestCase
 
         $output = (string)ob_get_clean();
 
-        ini_set('display_errors', $oldDisplayErrors);
+        ini_set('display_errors', (string)$oldDisplayErrors);
 
         $this->assertCount(0, $warnings);
         $this->assertMatchesRegularExpression(

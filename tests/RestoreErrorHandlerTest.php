@@ -56,7 +56,7 @@ class RestoreErrorHandlerTest extends TestCase
         trigger_error($expectedMessage, E_USER_NOTICE);
         $actualMessage = (string)ob_get_clean();
 
-        ini_set('display_errors', $oldDisplayErrors);
+        ini_set('display_errors', (string)$oldDisplayErrors);
 
         set_error_handler($previousHandler);
 
